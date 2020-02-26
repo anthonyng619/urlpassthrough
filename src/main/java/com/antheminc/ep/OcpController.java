@@ -21,7 +21,7 @@ public class OcpController {
 		    HttpMethod method, HttpServletRequest request, HttpServletResponse response) throws URISyntaxException {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Type", "application/json");
-		headers.add("Host", request.getHeader("UrlHost"));
+		headers.add("x-apigw-api-id", request.getHeader("x-apigw-api-id"));
 		
 	    HttpEntity<String> httpEntity = new HttpEntity<>(body, headers);
 	    RestTemplate restTemplate = new RestTemplate();
