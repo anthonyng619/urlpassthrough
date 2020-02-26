@@ -23,6 +23,9 @@ public class OcpController {
 		headers.add("Content-Type", "application/json");
 		headers.add("x-apigw-api-id", request.getHeader("x-apigw-api-id"));
 		
+		System.out.println("UrlPassthrough: " + request.getHeader("UrlPassthrough"));
+		System.out.println("x-apigw-api-id: " + request.getHeader("x-apigw-api-id"));
+		
 	    HttpEntity<String> httpEntity = new HttpEntity<>(body, headers);
 	    RestTemplate restTemplate = new RestTemplate();
 	    return restTemplate.exchange(request.getHeader("UrlPassthrough"), HttpMethod.POST, httpEntity, String.class);
